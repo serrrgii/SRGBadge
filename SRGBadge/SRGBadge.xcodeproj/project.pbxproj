@@ -21,6 +21,7 @@
 		55AA17501816A12A00335651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA17321816A12A00335651 /* UIKit.framework */; };
 		55AA17581816A12A00335651 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55AA17561816A12A00335651 /* InfoPlist.strings */; };
 		55AA175A1816A12A00335651 /* SRGBadgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA17591816A12A00335651 /* SRGBadgeTests.m */; };
+		55AA17651816A29E00335651 /* SRGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA17641816A29E00335651 /* SRGBadgeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		55AA17551816A12A00335651 /* SRGBadgeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SRGBadgeTests-Info.plist"; sourceTree = "<group>"; };
 		55AA17571816A12A00335651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55AA17591816A12A00335651 /* SRGBadgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGBadgeTests.m; sourceTree = "<group>"; };
+		55AA17631816A29E00335651 /* SRGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGBadgeView.h; sourceTree = "<group>"; };
+		55AA17641816A29E00335651 /* SRGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGBadgeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				55AA17441816A12A00335651 /* SRGViewController.m */,
 				55AA17461816A12A00335651 /* Images.xcassets */,
 				55AA17351816A12A00335651 /* Supporting Files */,
+				55AA17631816A29E00335651 /* SRGBadgeView.h */,
+				55AA17641816A29E00335651 /* SRGBadgeView.m */,
 			);
 			path = SRGBadge;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				55AA17451816A12A00335651 /* SRGViewController.m in Sources */,
 				55AA173B1816A12A00335651 /* main.m in Sources */,
 				55AA173F1816A12A00335651 /* SRGAppDelegate.m in Sources */,
+				55AA17651816A29E00335651 /* SRGBadgeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
