@@ -19,7 +19,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    SRGBadgeView *badge = [[SRGBadgeView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self.view.backgroundColor = [UIColor brownColor];
+    SRGBadgeView *badge = [[SRGBadgeView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2,
+                                                                         self.view.bounds.size.height/2, 22, 22)];
     [self.view addSubview:badge];
 }
 

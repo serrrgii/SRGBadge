@@ -10,17 +10,19 @@
 
 @implementation SRGBadgeView
 
-static float kStrokeWidth = 7.0f;
+static float kStrokeWidth = 3.0f;
 static float kStartAngle = -90.0f;
-static float kEndAngle = -270.0f;
-static float kFontSize = 17.0f;
-static NSString *const kFontName = @"Helvetica";
+static float kEndAngle = 90.0f;
+static float kFontSize = 12.0f;
+
+static NSString *const kFontName = @"Helvetica Bold";
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -43,27 +45,46 @@ static NSString *const kFontName = @"Helvetica";
     [[UIColor whiteColor] setStroke];
     [[UIColor redColor] setFill];
 
-    CGPathAddArc(path,
-                 NULL,
-                 center.x,
-                 center.y,
-                 radius,
-                 kStartAngle,
-                 kEndAngle,
-                 YES);
+
+    
+   
+    
+    CGSize textSize = [self drawText:@"1"
+                             atPoint:center
+                           inContext:context];
+    
+    //    CGPathAddArc(path,
+    //                 NULL,
+    //                 center.x,
+    //                 center.y,
+    //                 radius,
+    //                 [self degreesToRadiands:kStartAngle],
+    //                 [self degreesToRadiands:kEndAngle],
+    //                 YES);
+    
+    
+    CGPathMoveToPoint(path, NULL, center.x-textSize.width/2, 0);
+    
+    CGPathAddLineToPoint(path, NULL, center.y+textSize.width/2, 0);
+    
+    CGPathMoveToPoint(path, NULL, center.x-textSize.width/2, self.bounds.size.height);
+    
+    
+    
     
     CGPathCloseSubpath(path);
-
+    
     CGContextAddPath(context, path);
     CGContextStrokePath(context);
-    CGContextAddPath(context, path);
-    CGContextFillPath(context);
-    
-    [self drawText:@"1"
-           atPoint:center
-         inContext:context];
+//    CGContextAddPath(context, path);
+//    CGContextFillPath(context);
 }
-- (void)drawText:(NSString *)text atPoint:(CGPoint)point inContext:(CGContextRef)context
+- (void)setupSingleDigitPath:(CGMutablePathRef)path withCenter:(CGPoint)center
+{
+    
+}
+
+- (CGSize)drawText:(NSString *)text atPoint:(CGPoint)point inContext:(CGContextRef)context
 {
     CGContextSetTextDrawingMode(context, kCGTextFill);
     
@@ -77,9 +98,16 @@ static NSString *const kFontName = @"Helvetica";
                                  NSForegroundColorAttributeName : color
                                  };
     
+    CGSize size = [text sizeWithAttributes:attributes];
+    
+    point.x -= size.width/2;
+    point.y -= size.height/2;
+
+    
     [text drawAtPoint:point
        withAttributes:attributes];
     
+    return size;
 }
 - (float)degreesToRadiands:(float)degrees
 {
