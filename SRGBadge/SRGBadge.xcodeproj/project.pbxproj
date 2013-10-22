@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55AA172F1816A12A00335651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA172E1816A12A00335651 /* Foundation.framework */; };
+		55AA17311816A12A00335651 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA17301816A12A00335651 /* CoreGraphics.framework */; };
+		55AA17331816A12A00335651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA17321816A12A00335651 /* UIKit.framework */; };
+		55AA17391816A12A00335651 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55AA17371816A12A00335651 /* InfoPlist.strings */; };
+		55AA173B1816A12A00335651 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA173A1816A12A00335651 /* main.m */; };
+		55AA173F1816A12A00335651 /* SRGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA173E1816A12A00335651 /* SRGAppDelegate.m */; };
+		55AA17421816A12A00335651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55AA17401816A12A00335651 /* Main.storyboard */; };
+		55AA17451816A12A00335651 /* SRGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA17441816A12A00335651 /* SRGViewController.m */; };
+		55AA17471816A12A00335651 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55AA17461816A12A00335651 /* Images.xcassets */; };
+		55AA174E1816A12A00335651 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA174D1816A12A00335651 /* XCTest.framework */; };
+		55AA174F1816A12A00335651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA172E1816A12A00335651 /* Foundation.framework */; };
+		55AA17501816A12A00335651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA17321816A12A00335651 /* UIKit.framework */; };
+		55AA17581816A12A00335651 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55AA17561816A12A00335651 /* InfoPlist.strings */; };
+		55AA175A1816A12A00335651 /* SRGBadgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA17591816A12A00335651 /* SRGBadgeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55AA17511816A12A00335651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55AA17231816A12A00335651 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55AA172A1816A12A00335651;
+			remoteInfo = SRGBadge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		55AA172B1816A12A00335651 /* SRGBadge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRGBadge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55AA172E1816A12A00335651 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		55AA17301816A12A00335651 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		55AA17321816A12A00335651 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		55AA17361816A12A00335651 /* SRGBadge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SRGBadge-Info.plist"; sourceTree = "<group>"; };
+		55AA17381816A12A00335651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		55AA173A1816A12A00335651 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		55AA173C1816A12A00335651 /* SRGBadge-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SRGBadge-Prefix.pch"; sourceTree = "<group>"; };
+		55AA173D1816A12A00335651 /* SRGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGAppDelegate.h; sourceTree = "<group>"; };
+		55AA173E1816A12A00335651 /* SRGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGAppDelegate.m; sourceTree = "<group>"; };
+		55AA17411816A12A00335651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55AA17431816A12A00335651 /* SRGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGViewController.h; sourceTree = "<group>"; };
+		55AA17441816A12A00335651 /* SRGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGViewController.m; sourceTree = "<group>"; };
+		55AA17461816A12A00335651 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		55AA174C1816A12A00335651 /* SRGBadgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGBadgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55AA174D1816A12A00335651 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		55AA17551816A12A00335651 /* SRGBadgeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SRGBadgeTests-Info.plist"; sourceTree = "<group>"; };
+		55AA17571816A12A00335651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		55AA17591816A12A00335651 /* SRGBadgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGBadgeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55AA17281816A12A00335651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55AA17311816A12A00335651 /* CoreGraphics.framework in Frameworks */,
+				55AA17331816A12A00335651 /* UIKit.framework in Frameworks */,
+				55AA172F1816A12A00335651 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55AA17491816A12A00335651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55AA174E1816A12A00335651 /* XCTest.framework in Frameworks */,
+				55AA17501816A12A00335651 /* UIKit.framework in Frameworks */,
+				55AA174F1816A12A00335651 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55AA17221816A12A00335651 = {
+			isa = PBXGroup;
+			children = (
+				55AA17341816A12A00335651 /* SRGBadge */,
+				55AA17531816A12A00335651 /* SRGBadgeTests */,
+				55AA172D1816A12A00335651 /* Frameworks */,
+				55AA172C1816A12A00335651 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		55AA172C1816A12A00335651 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55AA172B1816A12A00335651 /* SRGBadge.app */,
+				55AA174C1816A12A00335651 /* SRGBadgeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55AA172D1816A12A00335651 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55AA172E1816A12A00335651 /* Foundation.framework */,
+				55AA17301816A12A00335651 /* CoreGraphics.framework */,
+				55AA17321816A12A00335651 /* UIKit.framework */,
+				55AA174D1816A12A00335651 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55AA17341816A12A00335651 /* SRGBadge */ = {
+			isa = PBXGroup;
+			children = (
+				55AA173D1816A12A00335651 /* SRGAppDelegate.h */,
+				55AA173E1816A12A00335651 /* SRGAppDelegate.m */,
+				55AA17401816A12A00335651 /* Main.storyboard */,
+				55AA17431816A12A00335651 /* SRGViewController.h */,
+				55AA17441816A12A00335651 /* SRGViewController.m */,
+				55AA17461816A12A00335651 /* Images.xcassets */,
+				55AA17351816A12A00335651 /* Supporting Files */,
+			);
+			path = SRGBadge;
+			sourceTree = "<group>";
+		};
+		55AA17351816A12A00335651 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55AA17361816A12A00335651 /* SRGBadge-Info.plist */,
+				55AA17371816A12A00335651 /* InfoPlist.strings */,
+				55AA173A1816A12A00335651 /* main.m */,
+				55AA173C1816A12A00335651 /* SRGBadge-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55AA17531816A12A00335651 /* SRGBadgeTests */ = {
+			isa = PBXGroup;
+			children = (
+				55AA17591816A12A00335651 /* SRGBadgeTests.m */,
+				55AA17541816A12A00335651 /* Supporting Files */,
+			);
+			path = SRGBadgeTests;
+			sourceTree = "<group>";
+		};
+		55AA17541816A12A00335651 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55AA17551816A12A00335651 /* SRGBadgeTests-Info.plist */,
+				55AA17561816A12A00335651 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55AA172A1816A12A00335651 /* SRGBadge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55AA175D1816A12A00335651 /* Build configuration list for PBXNativeTarget "SRGBadge" */;
+			buildPhases = (
+				55AA17271816A12A00335651 /* Sources */,
+				55AA17281816A12A00335651 /* Frameworks */,
+				55AA17291816A12A00335651 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SRGBadge;
+			productName = SRGBadge;
+			productReference = 55AA172B1816A12A00335651 /* SRGBadge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		55AA174B1816A12A00335651 /* SRGBadgeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55AA17601816A12A00335651 /* Build configuration list for PBXNativeTarget "SRGBadgeTests" */;
+			buildPhases = (
+				55AA17481816A12A00335651 /* Sources */,
+				55AA17491816A12A00335651 /* Frameworks */,
+				55AA174A1816A12A00335651 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55AA17521816A12A00335651 /* PBXTargetDependency */,
+			);
+			name = SRGBadgeTests;
+			productName = SRGBadgeTests;
+			productReference = 55AA174C1816A12A00335651 /* SRGBadgeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55AA17231816A12A00335651 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SRG;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Sergi Borras";
+				TargetAttributes = {
+					55AA174B1816A12A00335651 = {
+						TestTargetID = 55AA172A1816A12A00335651;
+					};
+				};
+			};
+			buildConfigurationList = 55AA17261816A12A00335651 /* Build configuration list for PBXProject "SRGBadge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 55AA17221816A12A00335651;
+			productRefGroup = 55AA172C1816A12A00335651 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55AA172A1816A12A00335651 /* SRGBadge */,
+				55AA174B1816A12A00335651 /* SRGBadgeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55AA17291816A12A00335651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55AA17471816A12A00335651 /* Images.xcassets in Resources */,
+				55AA17391816A12A00335651 /* InfoPlist.strings in Resources */,
+				55AA17421816A12A00335651 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55AA174A1816A12A00335651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55AA17581816A12A00335651 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55AA17271816A12A00335651 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55AA17451816A12A00335651 /* SRGViewController.m in Sources */,
+				55AA173B1816A12A00335651 /* main.m in Sources */,
+				55AA173F1816A12A00335651 /* SRGAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55AA17481816A12A00335651 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55AA175A1816A12A00335651 /* SRGBadgeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55AA17521816A12A00335651 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55AA172A1816A12A00335651 /* SRGBadge */;
+			targetProxy = 55AA17511816A12A00335651 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		55AA17371816A12A00335651 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55AA17381816A12A00335651 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		55AA17401816A12A00335651 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55AA17411816A12A00335651 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55AA17561816A12A00335651 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55AA17571816A12A00335651 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		55AA175B1816A12A00335651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		55AA175C1816A12A00335651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		55AA175E1816A12A00335651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SRGBadge/SRGBadge-Prefix.pch";
+				INFOPLIST_FILE = "SRGBadge/SRGBadge-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		55AA175F1816A12A00335651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SRGBadge/SRGBadge-Prefix.pch";
+				INFOPLIST_FILE = "SRGBadge/SRGBadge-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		55AA17611816A12A00335651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SRGBadge.app/SRGBadge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SRGBadge/SRGBadge-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SRGBadgeTests/SRGBadgeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		55AA17621816A12A00335651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SRGBadge.app/SRGBadge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SRGBadge/SRGBadge-Prefix.pch";
+				INFOPLIST_FILE = "SRGBadgeTests/SRGBadgeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55AA17261816A12A00335651 /* Build configuration list for PBXProject "SRGBadge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55AA175B1816A12A00335651 /* Debug */,
+				55AA175C1816A12A00335651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55AA175D1816A12A00335651 /* Build configuration list for PBXNativeTarget "SRGBadge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55AA175E1816A12A00335651 /* Debug */,
+				55AA175F1816A12A00335651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		55AA17601816A12A00335651 /* Build configuration list for PBXNativeTarget "SRGBadgeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55AA17611816A12A00335651 /* Debug */,
+				55AA17621816A12A00335651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 55AA17231816A12A00335651 /* Project object */;
+}
