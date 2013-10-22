@@ -10,6 +10,12 @@
 
 @implementation SRGBadgeView
 
+static float kStrokeWidth = 7.0f;
+static float kStartAngle = -90.0f;
+static float kEndAngle = -270.0f;
+static float kFontSize = 17.0f;
+static NSString *const kFontName = @"Helvetica";
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,26 +34,22 @@
     float radius = MAX(self.bounds.size.width/2,
                        self.bounds.size.height/2);
     
-    static float kStrokeWidth = 7.0f;
     radius -= kStrokeWidth/2;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGMutablePathRef path = CGPathCreateMutable();
-    CGContextSetLineWidth(context, 7.0f);
-    CGColorRef strokeColor = [UIColor whiteColor].CGColor;
-    CGColorRef fillColor = [UIColor redColor].CGColor;
-    CGContextSetStrokeColorWithColor(context,
-                                     strokeColor);
-    CGContextSetFillColorWithColor(context,
-                                   fillColor);
+    CGContextSetLineWidth(context, kStrokeWidth);
+    
+    [[UIColor whiteColor] setStroke];
+    [[UIColor redColor] setFill];
 
     CGPathAddArc(path,
                  NULL,
                  center.x,
                  center.y,
                  radius,
-                 [self degreesToRadiands:-90],
-                 [self degreesToRadiands:270],
+                 kStartAngle,
+                 kEndAngle,
                  YES);
     
     CGPathCloseSubpath(path);
@@ -65,13 +67,15 @@
 {
     CGContextSetTextDrawingMode(context, kCGTextFill);
     
-    UIFont *font = [UIFont fontWithName:@"Helvetica"
-                                   size:14.0f];
+    UIFont *font = [UIFont fontWithName:kFontName
+                                   size:kFontSize];
     
     UIColor *color = [UIColor whiteColor];
     
-    NSDictionary *attributes = @{NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName : color};
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName: font,
+                                 NSForegroundColorAttributeName : color
+                                 };
     
     [text drawAtPoint:point
        withAttributes:attributes];
