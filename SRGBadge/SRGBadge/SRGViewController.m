@@ -20,9 +20,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor brownColor];
-    SRGBadgeView *badge = [[SRGBadgeView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2,
-                                                                         self.view.bounds.size.height/2, 22, 22)];
-    [self.view addSubview:badge];
+    CGRect frame = CGRectMake(self.view.bounds.size.width/2,
+                              self.view.bounds.size.height/2,
+                              100,
+                              22);
+    
+    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"111sdfg11"];
+    multipleDigitBadge.frame = frame;
+    
+    SRGBadgeView *singleDigitBadge = [SRGBadgeView badgeWithText:@"1"];
+    
+    frame.origin.y += 100.0f;
+    singleDigitBadge.frame = frame;
+    
+    [self.view addSubview:multipleDigitBadge];
+    [self.view addSubview:singleDigitBadge];
 }
 
 - (void)didReceiveMemoryWarning

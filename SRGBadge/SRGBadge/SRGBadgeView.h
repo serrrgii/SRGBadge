@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SRGBadgeView : UIView
-
+@property (readwrite, strong, nonatomic) NSString *text;
++ (instancetype)badgeWithText:(NSString *)text;
 @end
