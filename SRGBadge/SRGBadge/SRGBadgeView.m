@@ -9,16 +9,23 @@
 #import "SRGBadgeView.h"
 
 
+@interface SRGBadgeView ()
+@property (readwrite, strong, nonatomic) NSString *text;
+@property (readwrite, strong, nonatomic) UIFont *font;
+@property (readwrite, assign, nonatomic) float padding;
+@property (readwrite, strong, nonatomic) UIColor *backgroundColor;
+@property (readwrite, strong, nonatomic) UIColor *foregroundColor;
+@property (readwrite, nonatomic) float borderWidth;
+@end
 @implementation SRGBadgeView
 
-static float kStrokeWidth = 2.0f;
+
 static float kStartAngle = 0.0f;
 static float kEndAngle = 360.0f;
 static float kSideStartAngle = 270.0f;
 static float kSideEndAngle = 90.0f;
-static float kFontSize = 12.0f;
+static float kHalfCircleAngle = 180.0f;
 
-static NSString *const kFontName = @"Helvetica Bold";
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -30,21 +37,34 @@ static NSString *const kFontName = @"Helvetica Bold";
     }
     return self;
 }
-- (id)initWithText:(NSString *)text
+- (id)initWithText:(NSString *)text font:(UIFont *)font padding:(float)padding backgroundColor:(UIColor *)backgroundColor foregroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
 {
     self = [super init];
     if (self)
     {
         self.text = text;
+        self.font = font;
+        self.padding = padding;
+        self.backgroundColor = backgroundColor;
+        self.foregroundColor = foregroundColor;
+        self.borderWidth = borderWidth;
     }
     return self;
 }
-+ (instancetype)badgeWithText:(NSString *)text
++ (instancetype)badgeWithText:(NSString *)text font:(UIFont *)font padding:(float)padding backgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
 {
-    return [[self alloc] initWithText:text];
+    return [[self alloc] initWithText:text
+                                 font:font
+                              padding:padding
+                      backgroundColor:backgroundColor
+                      foregroundColor:foregroundColor
+                          borderWidth:borderWidth
+            ];
 }
 - (void)drawRect:(CGRect)rect
 {
+    CGSize textSize = [self sizeForText:self.text];
+    
     CGPoint center = CGPointMake(self.bounds.size.width/2,
                                  self.bounds.size.height/2);
     
@@ -53,36 +73,33 @@ static NSString *const kFontName = @"Helvetica Bold";
     
     if (self.text.length > 1)
     {
-        CGSize textSize = [self sizeForText:self.text];
-    
-        [self setupDoubleDigitPath:path
-                        fromCenter:center
-                           forSize:textSize];
+       [self setupDoubleDigitPath:path
+                       fromCenter:center
+                          forSize:textSize];
     }
     else
     {
         [self setupSingleDigitPath:path
-                        fromCenter:center];
+                        fromCenter:center
+                           forSize:textSize];
     }
     
     CGContextAddPath(context, path);
-    [[UIColor whiteColor] setStroke];
-    CGContextSetLineWidth(context, kStrokeWidth);
+    [self.foregroundColor setStroke];
+    CGContextSetLineWidth(context, self.borderWidth);
     CGContextStrokePath(context);
-    [[UIColor redColor] setFill];
+    [self.backgroundColor setFill];
     CGContextAddPath(context, path);
     CGContextFillPath(context);
     
     [self drawText:self.text
            atPoint:center
          inContext:context];
-    
 }
-- (void)setupSingleDigitPath:(CGMutablePathRef)path fromCenter:(CGPoint)center
+- (void)setupSingleDigitPath:(CGMutablePathRef)path fromCenter:(CGPoint)center forSize:(CGSize)size
 {
-    float radius = self.bounds.size.height/2;
-    
-    radius -= kStrokeWidth/2;
+    float radius = size.height/2+self.padding;
+    radius -= self.borderWidth/2;
     
     CGPathAddArc(path,
                  NULL,
@@ -96,14 +113,14 @@ static NSString *const kFontName = @"Helvetica Bold";
 - (void)setupDoubleDigitPath:(CGMutablePathRef)path fromCenter:(CGPoint)center forSize:(CGSize)size
 {
     //right end
-    float radius = self.bounds.size.height/2;
-    radius -= kStrokeWidth/2;
+    float radius = size.height/2+self.padding;
+    radius -= self.borderWidth/2;
 
     //left side
     CGPathAddArc(path,
                  NULL,
                  center.x-size.width/2,
-                 self.bounds.size.height/2,
+                 center.y,
                  radius,
                  [self degreesToRadiands:kSideStartAngle],
                  [self degreesToRadiands:kSideEndAngle],
@@ -114,60 +131,47 @@ static NSString *const kFontName = @"Helvetica Bold";
     CGPathAddLineToPoint(path,
                          NULL,
                          center.x+size.width/2,
-                         self.bounds.size.height-kStrokeWidth/2);
+                         center.y+size.height/2+self.padding-self.borderWidth/2);
     
     CGPathAddArc(path,
                  NULL,
                  center.x+size.width/2,
-                 self.bounds.size.height/2,
+                 center.y,
                  radius,
-                 [self degreesToRadiands:kSideStartAngle-180],
-                 [self degreesToRadiands:kSideEndAngle-180],
+                 [self degreesToRadiands:kSideStartAngle-kHalfCircleAngle],
+                 [self degreesToRadiands:kSideEndAngle-kHalfCircleAngle],
                  YES);
 
     //top line
     CGPathAddLineToPoint(path,
                          NULL,
                          center.x-size.width/2,
-                         kStrokeWidth/2);
+                         center.y-size.height/2-self.padding+self.borderWidth/2);
     
 }
 - (void)drawText:(NSString *)text atPoint:(CGPoint)point inContext:(CGContextRef)context
 {
-    CGContextSetTextDrawingMode(context, kCGTextFill);
-    
-    UIFont *font = [UIFont fontWithName:kFontName
-                                   size:kFontSize];
-    
-    UIColor *color = [UIColor whiteColor];
-    
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName : color
-                                 };
-    
-    CGSize size = [text sizeWithAttributes:attributes];
+    CGSize size = [text sizeWithAttributes:[self textAttributes]];
     
     point.x -= size.width/2;
     point.y -= size.height/2;
 
-    
     [text drawAtPoint:point
-       withAttributes:attributes];
+       withAttributes:[self textAttributes]];
 }
 - (CGSize)sizeForText:(NSString *)text
 {
-    UIFont *font = [UIFont fontWithName:kFontName
-                                   size:kFontSize];
     
-    UIColor *color = [UIColor whiteColor];
+    return [text sizeWithAttributes:[self textAttributes]];
+}
+
+- (NSDictionary *)textAttributes {
     
     NSDictionary *attributes = @{
-                                 NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName : color
+                                 NSFontAttributeName: self.font,
+                                 NSForegroundColorAttributeName : self.foregroundColor
                                  };
-    
-    return [text sizeWithAttributes:attributes];
+    return attributes;
 }
 - (float)degreesToRadiands:(float)degrees
 {

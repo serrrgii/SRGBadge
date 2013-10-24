@@ -14,6 +14,8 @@
 @end
 
 @implementation SRGViewController
+static float kFontSize = 12.0f;
+static NSString *const kFontName = @"Helvetica Bold";
 
 - (void)viewDidLoad
 {
@@ -23,14 +25,28 @@
     CGRect frame = CGRectMake(self.view.bounds.size.width/2,
                               self.view.bounds.size.height/2,
                               100,
-                              22);
+                              32);
     
-    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"111sdfg11"];
+    UIFont *font = [UIFont fontWithName:kFontName
+                                   size:kFontSize];
+    
+    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"123sfdgdsfg"
+                                                              font:font
+                                                           padding:3.0f
+                                                   backgroundColor:[UIColor blueColor]
+                                                   foreGroundColor:[UIColor grayColor]
+                                                       borderWidth:4.0f
+                                                            ];
     multipleDigitBadge.frame = frame;
     
-    SRGBadgeView *singleDigitBadge = [SRGBadgeView badgeWithText:@"1"];
-    
-    frame.origin.y += 100.0f;
+    SRGBadgeView *singleDigitBadge = [SRGBadgeView badgeWithText:@"2"
+                                                            font:font
+                                                         padding:3.0f
+                                                 backgroundColor:[UIColor orangeColor]
+                                                 foreGroundColor:[UIColor greenColor]
+                                                     borderWidth:2.0f
+                                                            ];
+    frame.origin.y += 50.0f;
     singleDigitBadge.frame = frame;
     
     [self.view addSubview:multipleDigitBadge];

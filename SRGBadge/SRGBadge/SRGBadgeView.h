@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SRGBadgeView : UIView
-@property (readwrite, strong, nonatomic) NSString *text;
-+ (instancetype)badgeWithText:(NSString *)text;
+@property (readonly, strong, nonatomic) NSString *text;
+@property (readonly, strong, nonatomic) UIFont *font;
+@property (readonly, strong, nonatomic) UIColor *backgroundColor;
+@property (readonly, strong, nonatomic) UIColor *foregroundColor;
+@property (readonly, nonatomic) float borderWidth;
+@property (readonly, nonatomic) float padding;
++ (instancetype)badgeWithText:(NSString *)text font:(UIFont *)font padding:(float)padding backgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth;
 @end
