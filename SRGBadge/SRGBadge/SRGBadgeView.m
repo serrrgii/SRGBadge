@@ -13,9 +13,11 @@
 @property (readwrite, strong, nonatomic) NSString *text;
 @property (readwrite, strong, nonatomic) UIFont *font;
 @property (readwrite, assign, nonatomic) float padding;
-@property (readwrite, strong, nonatomic) UIColor *backgroundColor;
+@property (readwrite, strong, nonatomic) UIColor *badgeBackgroundColor;
 @property (readwrite, strong, nonatomic) UIColor *foregroundColor;
 @property (readwrite, nonatomic) float borderWidth;
+@property (readonly, strong, nonatomic) NSDictionary *textAttributes;
+@property (readonly, nonatomic) CGSize targetSize;
 @end
 @implementation SRGBadgeView
 
@@ -32,31 +34,33 @@ static float kHalfCircleAngle = 180.0f;
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor clearColor];
-        self.clipsToBounds = NO;
+        
     }
     return self;
 }
-- (id)initWithText:(NSString *)text font:(UIFont *)font padding:(float)padding backgroundColor:(UIColor *)backgroundColor foregroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
+- (id)initWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foregroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectMake(origin.x, origin.y, 0, 0)];
     if (self)
     {
         self.text = text;
         self.font = font;
         self.padding = padding;
-        self.backgroundColor = backgroundColor;
+        self.badgeBackgroundColor = backgroundColor;
         self.foregroundColor = foregroundColor;
         self.borderWidth = borderWidth;
+        self.backgroundColor = [UIColor clearColor];
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.targetSize.width, self.targetSize.height);
     }
     return self;
 }
-+ (instancetype)badgeWithText:(NSString *)text font:(UIFont *)font padding:(float)padding backgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
++ (instancetype)badgeWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
 {
     return [[self alloc] initWithText:text
+                                origin:origin
                                  font:font
                               padding:padding
-                      backgroundColor:backgroundColor
+                      badgeBackgroundColor:backgroundColor
                       foregroundColor:foregroundColor
                           borderWidth:borderWidth
             ];
@@ -88,7 +92,7 @@ static float kHalfCircleAngle = 180.0f;
     [self.foregroundColor setStroke];
     CGContextSetLineWidth(context, self.borderWidth);
     CGContextStrokePath(context);
-    [self.backgroundColor setFill];
+    [self.badgeBackgroundColor setFill];
     CGContextAddPath(context, path);
     CGContextFillPath(context);
     
@@ -177,5 +181,19 @@ static float kHalfCircleAngle = 180.0f;
 {
     return degrees * M_PI / 180.0f;
 }
-
+- (CGSize)targetSize
+{
+    CGSize textSize = [self sizeForText:self.text];
+    float height, width;
+    if (self.text.length > 1)
+    {
+        height = textSize.height+self.padding*2;
+        width = textSize.width+(textSize.height/2+self.padding)*2;
+    }
+    else
+    {
+        height = width = (textSize.height/2+self.padding)*2;
+    }
+    return CGSizeMake(width, height);
+}
 @end

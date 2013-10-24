@@ -15,5 +15,5 @@
 @property (readonly, strong, nonatomic) UIColor *foregroundColor;
 @property (readonly, nonatomic) float borderWidth;
 @property (readonly, nonatomic) float padding;
-+ (instancetype)badgeWithText:(NSString *)text font:(UIFont *)font padding:(float)padding backgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth;
++ (instancetype)badgeWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth;
 @end

@@ -22,33 +22,30 @@ static NSString *const kFontName = @"Helvetica Bold";
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor brownColor];
-    CGRect frame = CGRectMake(self.view.bounds.size.width/2,
-                              self.view.bounds.size.height/2,
-                              100,
-                              32);
+    
+    CGPoint origin = CGPointMake(self.view.bounds.size.width/2,
+                                 self.view.bounds.size.height/2);
     
     UIFont *font = [UIFont fontWithName:kFontName
                                    size:kFontSize];
     
-    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"123sfdgdsfg"
+    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"123sfdsdgsdfgertgdsfg"
+                                                            origin:CGPointMake(origin.x, origin.y)
                                                               font:font
                                                            padding:3.0f
-                                                   backgroundColor:[UIColor blueColor]
+                                                   badgeBackgroundColor:[UIColor blueColor]
                                                    foreGroundColor:[UIColor grayColor]
                                                        borderWidth:4.0f
                                                             ];
-    multipleDigitBadge.frame = frame;
     
     SRGBadgeView *singleDigitBadge = [SRGBadgeView badgeWithText:@"2"
+                                                          origin:CGPointMake(origin.x, origin.y+50)
                                                             font:font
                                                          padding:3.0f
-                                                 backgroundColor:[UIColor orangeColor]
+                                                 badgeBackgroundColor:[UIColor orangeColor]
                                                  foreGroundColor:[UIColor greenColor]
                                                      borderWidth:2.0f
                                                             ];
-    frame.origin.y += 50.0f;
-    singleDigitBadge.frame = frame;
-    
     [self.view addSubview:multipleDigitBadge];
     [self.view addSubview:singleDigitBadge];
 }
