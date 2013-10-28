@@ -36,6 +36,7 @@ static NSString *const kFontName = @"Helvetica Bold";
                                                    badgeBackgroundColor:[UIColor blueColor]
                                                    foreGroundColor:[UIColor grayColor]
                                                        borderWidth:4.0f
+                                                         alignment:SRGBadgeViewAlignmentTypeCenter
                                                             ];
     
     SRGBadgeView *singleDigitBadge = [SRGBadgeView badgeWithText:@"2"
@@ -45,6 +46,7 @@ static NSString *const kFontName = @"Helvetica Bold";
                                                  badgeBackgroundColor:[UIColor orangeColor]
                                                  foreGroundColor:[UIColor greenColor]
                                                      borderWidth:2.0f
+                                                       alignment:SRGBadgeViewAlignmentTypeCenter
                                                             ];
     [self.view addSubview:multipleDigitBadge];
     [self.view addSubview:singleDigitBadge];

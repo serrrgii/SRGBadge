@@ -18,6 +18,7 @@
 @property (readwrite, nonatomic) float borderWidth;
 @property (readonly, strong, nonatomic) NSDictionary *textAttributes;
 @property (readonly, nonatomic) CGSize targetSize;
+@property (readwrite, assign, nonatomic) SRGBadgeViewAlignmentType alignment;
 @end
 @implementation SRGBadgeView
 
@@ -38,7 +39,7 @@ static float kHalfCircleAngle = 180.0f;
     }
     return self;
 }
-- (id)initWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foregroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
+- (id)initWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foregroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth alignment:(SRGBadgeViewAlignmentType)alignment
 {
     self = [super initWithFrame:CGRectMake(origin.x, origin.y, 0, 0)];
     if (self)
@@ -50,11 +51,22 @@ static float kHalfCircleAngle = 180.0f;
         self.foregroundColor = foregroundColor;
         self.borderWidth = borderWidth;
         self.backgroundColor = [UIColor clearColor];
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.targetSize.width, self.targetSize.height);
+        self.alignment = alignment;
+        CGSize size = self.targetSize;
+        switch (alignment) {
+            case SRGBadgeViewAlignmentTypeCenter:
+                origin.x -= size.width/2;
+                break;
+            case SRGBadgeViewAlignmentTypeRight:
+                origin.x -= size.width;
+            default:
+                break;
+        }
+        self.frame = CGRectMake(origin.x, self.frame.origin.y, size.width, size.height);
     }
     return self;
 }
-+ (instancetype)badgeWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth
++ (instancetype)badgeWithText:(NSString *)text origin:(CGPoint)origin font:(UIFont *)font padding:(float)padding badgeBackgroundColor:(UIColor *)backgroundColor foreGroundColor:(UIColor *)foregroundColor borderWidth:(float)borderWidth alignment:(SRGBadgeViewAlignmentType)alignment
 {
     return [[self alloc] initWithText:text
                                 origin:origin
@@ -63,6 +75,7 @@ static float kHalfCircleAngle = 180.0f;
                       badgeBackgroundColor:backgroundColor
                       foregroundColor:foregroundColor
                           borderWidth:borderWidth
+                            alignment:alignment
             ];
 }
 - (void)drawRect:(CGRect)rect
