@@ -29,7 +29,7 @@ static NSString *const kFontName = @"Helvetica Bold";
     UIFont *font = [UIFont fontWithName:kFontName
                                    size:kFontSize];
     
-    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"123sfdsdgsdfgertgdsfg"
+    SRGBadgeView *multipleDigitBadge = [SRGBadgeView badgeWithText:@"123456"
                                                             origin:CGPointMake(origin.x, origin.y)
                                                               font:font
                                                            padding:3.0f
